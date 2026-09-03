@@ -80,7 +80,13 @@
     gap:12px;
   }
   .brand{
-    display:flex;align-items:baseline;gap:10px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .brand-logo{
+    width:40px;height:40px;
+    border-radius:50%;
+    flex-shrink:0;
+    box-shadow:0 1px 4px rgba(0,0,0,0.25);
   }
   .brand .mark{
     font-family:'Fraunces',serif;
@@ -230,6 +236,16 @@
     color:#111;
   }
   .btn-amazon:hover{background:#e88a00;}
+  .btn-logo-chip{
+    display:inline-flex;align-items:center;justify-content:center;
+    background:#fff;
+    border-radius:6px;
+    padding:3px 6px;
+    line-height:0;
+  }
+  .btn-logo-chip img{
+    height:14px;width:auto;display:block;
+  }
 
   /* ---------- Local order panel ---------- */
   .local-panel{
@@ -387,18 +403,18 @@
 
   /* ---------- Preview lightbox ---------- */
   .preview-btn{
-    background:transparent;
-    color:var(--teal);
-    border:1.5px dashed rgba(27,75,74,0.35);
+    background:#2E7D32;
+    color:#fff;
+    border:none;
     border-radius:999px;
     padding:9px 16px;
     font-size:0.85rem;
     font-weight:600;
     display:flex;align-items:center;justify-content:center;gap:6px;
     margin-top:8px;
-    transition:background .15s ease;
+    transition:background .15s ease, transform .15s ease;
   }
-  .preview-btn:hover{background:rgba(27,75,74,0.06);}
+  .preview-btn:hover{background:#256428;transform:translateY(-2px);}
   .lightbox-overlay{
     display:none;
     position:fixed;inset:0;
@@ -487,6 +503,7 @@
 <header class="hero">
   <div class="nav-row">
     <div class="brand">
+      <img class="brand-logo" src="assets/images/logo.png" alt="MorisEbooks logo">
       <span class="mark">Moris<span>Ebooks</span></span>
       <span class="tagline" data-i18n="tagline_short">Storybooks from Mauritius</span>
     </div>
@@ -540,21 +557,23 @@
             <span class="price-tag price-mur"><span class="was">Rs 159</span> Rs 100 <small data-i18n="tag_launch">launch price</small></span>
           </div>
 
+          <button type="button" class="preview-btn" data-preview-lang="en" data-preview-title="The Lost Star of Poste Lafayette">
+            📖 <span data-i18n="preview_btn">Preview Book</span>
+          </button>
+
           <div class="buy-row">
             <a class="btn btn-primary" href="https://payhip.com/MorisEbooks" target="_blank" rel="noopener">
+              <span class="btn-logo-chip"><img src="assets/images/payhip-logo.png" alt=""></span>
               <span data-i18n="buy_payhip">Buy on Payhip</span>
             </a>
             <a class="btn btn-amazon" href="https://www.amazon.com/dp/B0H26YDF8B" target="_blank" rel="noopener">
+              <span class="btn-logo-chip"><img src="assets/images/amazon-logo.png" alt=""></span>
               <span data-i18n="buy_amazon">Buy on Amazon</span>
             </a>
             <button type="button" class="btn btn-secondary" data-toggle-panel="panel-en">
               <span data-i18n="pay_local">Pay locally (MCB Juice / MyT Money)</span>
             </button>
           </div>
-
-          <button type="button" class="preview-btn" data-preview-lang="en" data-preview-title="The Lost Star of Poste Lafayette">
-            📖 <span data-i18n="preview_btn">Preview Book</span>
-          </button>
 
           <div class="local-panel" id="panel-en" data-lang-card="en">
             <label data-i18n="lbl_method">Payment method</label>
@@ -600,21 +619,23 @@
             <span class="price-tag price-mur"><span class="was">Rs 159</span> Rs 100 <small data-i18n="tag_launch">launch price</small></span>
           </div>
 
+          <button type="button" class="preview-btn" data-preview-lang="fr" data-preview-title="L'Étoile perdue de Poste Lafayette">
+            📖 <span data-i18n="preview_btn">Preview Book</span>
+          </button>
+
           <div class="buy-row">
             <a class="btn btn-primary" href="https://payhip.com/MorisEbooks" target="_blank" rel="noopener">
+              <span class="btn-logo-chip"><img src="assets/images/payhip-logo.png" alt=""></span>
               <span data-i18n="buy_payhip">Buy on Payhip</span>
             </a>
             <a class="btn btn-amazon" href="https://www.amazon.com/dp/B0HGL44Q44" target="_blank" rel="noopener">
+              <span class="btn-logo-chip"><img src="assets/images/amazon-logo.png" alt=""></span>
               <span data-i18n="buy_amazon">Buy on Amazon</span>
             </a>
             <button type="button" class="btn btn-secondary" data-toggle-panel="panel-fr">
               <span data-i18n="pay_local">Pay locally (MCB Juice / MyT Money)</span>
             </button>
           </div>
-
-          <button type="button" class="preview-btn" data-preview-lang="fr" data-preview-title="L'Étoile perdue de Poste Lafayette">
-            📖 <span data-i18n="preview_btn">Preview Book</span>
-          </button>
 
           <div class="local-panel" id="panel-fr" data-lang-card="fr">
             <label data-i18n="lbl_method">Payment method</label>
