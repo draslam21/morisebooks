@@ -339,34 +339,6 @@
     background:rgba(232,92,74,0.1);
     color:var(--coral-deep);
   }
-  .price-mur .was{
-    text-decoration:line-through;
-    opacity:0.55;
-    font-weight:500;
-    margin-right:2px;
-  }
-  .promo-banner{
-    max-width:980px;margin:0 auto 30px;padding:0 24px;
-  }
-  .promo-banner .strip{
-    background:linear-gradient(100deg,var(--gold),#f7c37e);
-    color:var(--teal-deep);
-    border-radius:var(--radius-md);
-    padding:14px 20px;
-    text-align:center;
-    font-size:0.9rem;
-    font-weight:600;
-    box-shadow:0 8px 18px -10px rgba(242,169,78,0.6);
-  }
-  .promo-banner .strip b{font-weight:800;}
-  .bundle-row{
-    display:flex;align-items:flex-start;gap:8px;
-    margin-top:12px;
-    font-size:0.85rem;
-    color:var(--teal-deep);
-  }
-  .bundle-row input{margin-top:3px;}
-  .bundle-row label{font-weight:600;cursor:pointer;}
   .price-live{
     font-size:0.8rem;
     color:#6b5c4d;
@@ -579,15 +551,11 @@
 </header>
 
 <main>
-  <div class="promo-banner">
-    <div class="strip" data-i18n="promo_banner">🎉 Launch offer: Rs 100 for one edition or Rs 159 for both — valid until 30 September 2026.</div>
-  </div>
-
   <div class="intro-box">
     <div class="card-inner">
       <p data-i18n="intro_p1">Welcome to the first of its kind ebook website in Mauritius. So far we have only 1 ebook, in 2 languages — more ebooks and digital products are on their way.</p>
       <p data-i18n="intro_p2">If you're purchasing from outside Mauritius in USD, Euro, etc., use the Payhip or Amazon link for sample pages, payment and checkout. The PDF or kindle file will be delivered to you immediately.</p>
-      <p><span data-i18n="intro_p3">If you'd like to pay with a local payment method, click "Pay locally" and enter your details.</span> <span class="highlight" data-i18n="intro_p3b">No payment is required at this point</span><span data-i18n="intro_p3c"> — you'll be contacted for payment and delivery. Please note a special discount is available for local buyers until end of September.</span></p>
+      <p><span data-i18n="intro_p3">If you'd like to pay with a local payment method, click "Pay locally" and enter your details.</span> <span class="highlight" data-i18n="intro_p3b">No payment is required at this point</span><span data-i18n="intro_p3c"> — you'll be contacted for payment and delivery.</span></p>
       <p><span data-i18n="intro_p4">Interested in selling your own ebook or digital product on this website?</span> <a class="seller-link" href="mailto:draslam21@hotmail.com?subject=MorisEbooks%20-%20Selling%20my%20own%20product" data-i18n="intro_p4_link">Contact us</a>.</p>
     </div>
   </div>
@@ -613,7 +581,7 @@
 
           <div class="price-row">
             <span class="price-tag price-usd">$3.49 / €2.99 <small data-i18n="tag_payhip">Payhip &amp; Amazon</small></span>
-            <span class="price-tag price-mur"><span class="was">Rs 159</span> Rs 100 <small data-i18n="tag_launch">launch price</small></span>
+            <span class="price-tag price-mur">Rs 159</span>
           </div>
 
           <button type="button" class="preview-btn" data-preview-lang="en" data-preview-title="The Lost Star of Poste Lafayette">
@@ -644,10 +612,6 @@
             <input type="text" data-field="buyer" placeholder="">
             <label data-i18n="lbl_child">Child's name (who the book is for)</label>
             <input type="text" data-field="child" placeholder="">
-            <div class="bundle-row">
-              <input type="checkbox" id="bundle-en" data-bundle>
-              <label for="bundle-en" data-bundle-label="fr">Also get the French edition — Rs 159 for both</label>
-            </div>
             <p class="price-live" data-price-live></p>
             <div class="send-row">
               <a class="send-whatsapp" data-send="whatsapp" href="#" target="_blank" rel="noopener">
@@ -675,7 +639,7 @@
 
           <div class="price-row">
             <span class="price-tag price-usd">$3.49 / €2.99 <small data-i18n="tag_payhip">Payhip &amp; Amazon</small></span>
-            <span class="price-tag price-mur"><span class="was">Rs 159</span> Rs 100 <small data-i18n="tag_launch">launch price</small></span>
+            <span class="price-tag price-mur">Rs 159</span>
           </div>
 
           <button type="button" class="preview-btn" data-preview-lang="fr" data-preview-title="L'Étoile perdue de Poste Lafayette">
@@ -706,10 +670,6 @@
             <input type="text" data-field="buyer" placeholder="">
             <label data-i18n="lbl_child">Child's name (who the book is for)</label>
             <input type="text" data-field="child" placeholder="">
-            <div class="bundle-row">
-              <input type="checkbox" id="bundle-fr" data-bundle>
-              <label for="bundle-fr" data-bundle-label="en">Also get the English edition — Rs 159 for both</label>
-            </div>
             <p class="price-live" data-price-live></p>
             <div class="send-row">
               <a class="send-whatsapp" data-send="whatsapp" href="#" target="_blank" rel="noopener">
@@ -793,11 +753,7 @@
 (function(){
   const WHATSAPP_NUMBER = "23057408040";
   const EMAIL_ADDRESS = "draslam21@hotmail.com";
-  const PROMO_END = new Date("2026-09-30T23:59:59+04:00");
-  const PRICE_SINGLE_PROMO = "Rs 100";
   const PRICE_SINGLE_REGULAR = "Rs 159";
-  const PRICE_BUNDLE = "Rs 159";
-  function promoActive(){ return new Date() <= PROMO_END; }
 
   const translations = {
     en: {
@@ -824,14 +780,8 @@
       reviews_title: "What readers say",
       reviews_sub: "A few words from families who've read MorisEbooks stories.",
       footer_text: "MorisEbooks — illustrated storybooks from Mauritius.",
-      promo_banner: "🎉 Launch offer: Rs 100 for one edition or Rs 159 for both — valid until 30 September 2026.",
       tag_payhip: "Payhip & Amazon",
-      tag_launch: "launch price",
-      bundle_add_fr: "Also get the French edition — Rs 159 for both",
-      bundle_add_en: "Also get the English edition — Rs 159 for both",
-      price_live_single_promo: "Local price: Rs 100 (launch offer, until 30 Sept 2026)",
       price_live_single_regular: "Local price: Rs 159",
-      price_live_bundle: "Bundle price: Rs 159 for both editions",
       msg_intro: "Hello! I'd like to order:",
       msg_product: "Book",
       msg_price: "Price",
@@ -843,7 +793,7 @@
       intro_p2: "If you're purchasing from outside Mauritius in USD, Euro, etc., use the Payhip or Amazon link for sample pages, payment and checkout. The PDF or Kindle file will be delivered to you immediately.",
       intro_p3: "If you'd like to pay with a local payment method, click \"Pay locally\" and enter your details.",
       intro_p3b: "No payment is required at this point",
-      intro_p3c: " — you'll be contacted for payment and delivery. Please note a special discount is available for local buyers until end of September.",
+      intro_p3c: " — you'll be contacted for payment and delivery.",
       intro_p4: "Interested in selling your own ebook or digital product on this website?",
       intro_p4_link: "Contact us",
       preview_btn: "Preview Book",
@@ -874,14 +824,8 @@
       reviews_title: "Ce que disent nos lecteurs",
       reviews_sub: "Quelques mots de familles qui ont lu les histoires MorisEbooks.",
       footer_text: "MorisEbooks — histoires illustrées de Maurice.",
-      promo_banner: "🎉 Offre de lancement : Rs 100 pour une édition ou Rs 159 pour les deux — valable jusqu'au 30 septembre 2026.",
       tag_payhip: "Payhip et Amazon",
-      tag_launch: "prix de lancement",
-      bundle_add_fr: "Ajouter aussi l'édition française — Rs 159 pour les deux",
-      bundle_add_en: "Ajouter aussi l'édition anglaise — Rs 159 pour les deux",
-      price_live_single_promo: "Prix local : Rs 100 (offre de lancement, jusqu'au 30 sept. 2026)",
       price_live_single_regular: "Prix local : Rs 159",
-      price_live_bundle: "Prix du lot : Rs 159 pour les deux éditions",
       msg_intro: "Bonjour ! Je voudrais commander :",
       msg_product: "Livre",
       msg_price: "Prix",
@@ -893,7 +837,7 @@
       intro_p2: "Si vous achetez de l'étranger en USD, Euro, etc., utilisez le lien Payhip or Amazon pour les pages d'aperçu, le paiement et la commande. Le fichier PDF ou kindle vous sera livré immédiatement.",
       intro_p3: "Si vous souhaitez payer avec un mode de paiement local, cliquez sur « Payer localement » et indiquez vos coordonnées.",
       intro_p3b: "Aucun paiement n'est requis à ce stade",
-      intro_p3c: " — nous vous contacterons pour le paiement et la livraison. Notez qu'une réduction spéciale est disponible pour les acheteurs locaux jusqu'à fin septembre.",
+      intro_p3c: " — nous vous contacterons pour le paiement et la livraison.",
       intro_p4: "Vous souhaitez vendre votre propre ebook ou produit numérique sur ce site ?",
       intro_p4_link: "Contactez-nous",
       preview_btn: "Aperçu du livre",
@@ -914,19 +858,6 @@
       } else if(translations[lang][key]){
         el.textContent = translations[lang][key];
       }
-    });
-    document.querySelectorAll("[data-bundle-label]").forEach(el=>{
-      const otherLang = el.getAttribute("data-bundle-label");
-      el.textContent = translations[lang]["bundle_add_" + otherLang];
-    });
-    document.querySelectorAll(".price-mur").forEach(el=>{
-      if(promoActive()){
-        el.innerHTML = '<span class="was">' + PRICE_SINGLE_REGULAR + '</span> ' + PRICE_SINGLE_PROMO + ' <small data-i18n="tag_launch"></small>';
-      } else {
-        el.innerHTML = PRICE_SINGLE_REGULAR;
-      }
-      const smallTag = el.querySelector("[data-i18n]");
-      if(smallTag) smallTag.textContent = translations[lang].tag_launch;
     });
     document.documentElement.setAttribute("lang", lang);
     document.documentElement.setAttribute("data-lang", lang);
@@ -961,10 +892,6 @@
     panel.querySelectorAll("input[data-field]").forEach(input=>{
       input.addEventListener("input", ()=> updateLinks(panel));
     });
-    const bundleBox = panel.querySelector("[data-bundle]");
-    if(bundleBox){
-      bundleBox.addEventListener("change", ()=> updateLinks(panel));
-    }
   });
 
   function updateLinks(panel){
@@ -973,28 +900,13 @@
     const method = panel.dataset.method || "";
     const buyer = panel.querySelector('[data-field="buyer"]').value.trim();
     const child = panel.querySelector('[data-field="child"]').value.trim();
-    const bundleBox = panel.querySelector("[data-bundle]");
-    const isBundle = bundleBox && bundleBox.checked;
 
-    const cardLang = panel.getAttribute("data-lang-card");
-    const otherLang = cardLang === "en" ? "fr" : "en";
-
-    let productName = currentLang === "fr" ? card.dataset.productFr : card.dataset.productEn;
-    let price;
-    if(isBundle){
-      const otherCard = document.querySelector('.local-panel[data-lang-card="' + otherLang + '"]').closest(".card");
-      const otherName = currentLang === "fr" ? otherCard.dataset.productFr : otherCard.dataset.productEn;
-      productName = productName + " + " + otherName;
-      price = PRICE_BUNDLE;
-    } else {
-      price = promoActive() ? PRICE_SINGLE_PROMO : PRICE_SINGLE_REGULAR;
-    }
+    const productName = currentLang === "fr" ? card.dataset.productFr : card.dataset.productEn;
+    const price = PRICE_SINGLE_REGULAR;
 
     const priceLiveEl = panel.querySelector("[data-price-live]");
     if(priceLiveEl){
-      priceLiveEl.innerHTML = isBundle
-        ? "<b>" + t.price_live_bundle + "</b>"
-        : (promoActive() ? "<b>" + t.price_live_single_promo + "</b>" : t.price_live_single_regular);
+      priceLiveEl.textContent = t.price_live_single_regular;
     }
 
     const waLink = panel.querySelector('[data-send="whatsapp"]');
